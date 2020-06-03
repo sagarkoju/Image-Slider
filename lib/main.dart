@@ -1,53 +1,61 @@
 import 'package:flutter/material.dart';
 
-import 'package:carousel_pro/carousel_pro.dart';
-
-void main() {
+void main(){
   runApp(MyApp());
 }
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Home(),
       debugShowCheckedModeBanner: false,
+      home: Home(),
       
     );
   }
 }
+
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Widget imagecaraousel = new Container(
-      height: 200.0,
-
-      child: Carousel(
-        boxFit: BoxFit.cover,
-        images: [
-          AssetImage("assets/s.png"),
-          AssetImage("assets/sa.jpg"),
-          AssetImage("assets/sag.png"),
-          AssetImage("assets/saga.png"),
-          AssetImage("assets/sagar.png"),
-          AssetImage("assets/sagar1.png"),
-     ],
-     autoplay: true,
-     animationCurve: Curves.fastOutSlowIn,
-     animationDuration: Duration(microseconds: 300),
-     dotSize: 14.0,
-     indicatorBgPadding: 20.0,
-        
-      ),
-    );
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Image Slider")
+        title: Text("Drawer in Flutter")
       ),
-      body: Column(
+      drawer: Drawer(
+        child: ListView(
       children: <Widget>[
-        imagecaraousel
-      ],),
+        UserAccountsDrawerHeader(
+        accountName: Text("Sagar Koju"),
+         accountEmail: Text("Sagarkoju5@gmail.com"),
+         currentAccountPicture: GestureDetector(
+           child: CircleAvatar(
+            backgroundImage: AssetImage("assets/s.png"),
+            backgroundColor: Colors.teal ,)
+         ),
+         ),
+         ListTile(
+           leading: Icon(Icons.home),
+           title: Text("Home"),
+         ),
+         ListTile(
+           leading: Icon(Icons.person),
+           title: Text("Profile"),
+         ),
+         ListTile(
+           leading: Icon(Icons.shopping_cart),
+           title: Text("Cart"),
+         ),
+         ListTile(
+           leading: Icon(Icons.info),
+           title: Text("About"),
+         ),
+         ListTile(
+           leading: Icon(Icons.star),
+           title: Text("Rate"),
+         )
+      ],)
+      ),
     );
   }
 }
