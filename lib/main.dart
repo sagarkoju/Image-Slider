@@ -1,3 +1,6 @@
+
+import 'package:app9/model/home.dart';
+import 'package:app9/model/profile.dart';
 import 'package:flutter/material.dart';
 
 void main(){
@@ -35,10 +38,17 @@ class Home extends StatelessWidget {
          ),
          ),
          ListTile(
+           onTap: (){
+             Navigator.push(context, MaterialPageRoute(builder: (context)=>HomePage()));
+           },
+          
            leading: Icon(Icons.home),
            title: Text("Home"),
          ),
          ListTile(
+           onTap: (){
+             Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
+           },
            leading: Icon(Icons.person),
            title: Text("Profile"),
          ),
